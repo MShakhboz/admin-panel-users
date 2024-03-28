@@ -4,3 +4,5 @@ export { default as Content } from "./content";
 export { default as Title } from "./title";
 export { default as Button } from "./button";
 export { default as SearchInput } from "./search-input";
+export { default as FlexBox } from "./flex-box";
+export { default as Table } from "./table";
