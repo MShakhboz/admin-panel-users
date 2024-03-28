@@ -5,7 +5,7 @@ const FlexBox = ({ children, className }: Props) => {
     return (
         <div
             className={clsx(
-                "flex flex-row items-center justify-start gap-2",
+                "w-full flex flex-row items-center justify-start gap-2",
                 className
             )}
         >
