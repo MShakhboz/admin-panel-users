@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'Futura PT Book';
+  src: url('FuturaCyrillicBook.eot');
+  src: url('FuturaCyrillicBook.eot?#iefix') format('embedded-opentype'),
+      url('FuturaCyrillicBook.woff2') format('woff2'),
+      url('FuturaCyrillicBook.woff') format('woff'),
+      url('FuturaCyrillicBook.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  src: url('FuturaCyrillic-Bold.eot');
+  src: url('FuturaCyrillic-Bold.eot?#iefix') format('embedded-opentype'),
+      url('FuturaCyrillic-Bold.woff2') format('woff2'),
+      url('FuturaCyrillic-Bold.woff') format('woff'),
+      url('FuturaCyrillic-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura PT Extra';
+  src: url('FuturaCyrillic-ExtraBold.eot');
+  src: url('FuturaCyrillic-ExtraBold.eot?#iefix') format('embedded-opentype'),
+      url('FuturaCyrillic-ExtraBold.woff2') format('woff2'),
+      url('FuturaCyrillic-ExtraBold.woff') format('woff'),
+      url('FuturaCyrillic-ExtraBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  src: url('FuturaCyrillicMedium.eot');
+  src: url('FuturaCyrillicMedium.eot?#iefix') format('embedded-opentype'),
+      url('FuturaCyrillicMedium.woff2') format('woff2'),
+      url('FuturaCyrillicMedium.woff') format('woff'),
+      url('FuturaCyrillicMedium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  src: url('FuturaCyrillicHeavy.eot');
+  src: url('FuturaCyrillicHeavy.eot?#iefix') format('embedded-opentype'),
+      url('FuturaCyrillicHeavy.woff2') format('woff2'),
+      url('FuturaCyrillicHeavy.woff') format('woff'),
+      url('FuturaCyrillicHeavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'futura-pt-light';
+  src: url('FuturaCyrillicLight.eot');
+  src: url('FuturaCyrillicLight.eot?#iefix') format('embedded-opentype'),
+      url('FuturaCyrillicLight.woff2') format('woff2'),
+      url('FuturaCyrillicLight.woff') format('woff'),
+      url('FuturaCyrillicLight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura PT Demi';
+  src: url('FuturaCyrillic-Demi.eot');
+  src: url('FuturaCyrillic-Demi.eot?#iefix') format('embedded-opentype'),
+      url('FuturaCyrillic-Demi.woff2') format('woff2'),
+      url('FuturaCyrillic-Demi.woff') format('woff'),
+      url('FuturaCyrillic-Demi.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

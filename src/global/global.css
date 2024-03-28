@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: Futura PT Book, sans-serif;
+    background-color: #EBEBF0;
+}
