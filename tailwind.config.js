@@ -6,7 +6,9 @@ export default {
             fontFamily: {
                 "futura-pt": ["Futura PT Book", "sans-serif"],
             },
-            colors: {},
+            colors: {
+                "cs-black-500": "#424F5E",
+            },
             backgroundColor: {
                 "cs-white-100": "#F9FAFB",
             },
