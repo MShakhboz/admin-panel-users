@@ -1,0 +1,16 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: ["./src/**/*.{js,jsx,ts,tsx}"],
+    theme: {
+        extend: {
+            fontFamily: {
+                "futura-pt": ["Futura PT Book", "sans-serif"],
+            },
+            colors: {},
+            backgroundColor: {
+                "cs-white-100": "#F9FAFB",
+            },
+        },
+    },
+    plugins: [],
+};
