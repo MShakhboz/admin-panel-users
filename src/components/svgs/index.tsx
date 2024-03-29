@@ -19,3 +19,20 @@ export const SearchIcon = ({ fill, width, height, className }: Props) => {
         </svg>
     );
 };
+
+export const ThreeDots = ({ fill, width, height, className }: Props) => {
+    return (
+        <svg
+            width={width ?? "20"}
+            height={height ?? "4"}
+            className={className}
+            viewBox="0 0 20 4"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <circle cx="2" cy="2" r="2" fill={fill ?? "#C1C1CB"} />
+            <circle cx="10" cy="2" r="2" fill={fill ?? "#C1C1CB"} />
+            <circle cx="18" cy="2" r="2" fill={fill ?? "#C1C1CB"} />
+        </svg>
+    );
+};
