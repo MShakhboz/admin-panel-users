@@ -9,3 +9,5 @@ export { default as Table } from "./table";
 export { default as Image } from "./image";
 export { default as Text } from "./text";
 export { default as Modal } from "./modal";
+export { default as Input } from "./input";
+export { default as Dropdown } from "./drop-down";

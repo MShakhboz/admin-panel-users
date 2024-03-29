@@ -11,6 +11,7 @@ export default {
                 "cs-gray-400": "#9494A0",
                 "cs-gray-300": "#EFEFF6",
                 "cs-vivid-blue-300": "#5A57FF",
+                "cs-gray-350": "#C1C1CB",
             },
             backgroundColor: {
                 "cs-white-100": "#F9FAFB",
