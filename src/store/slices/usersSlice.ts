@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { usersService } from "../../services/api/usersService";
 
 export type UserType = {
     email: string;
-    image: string;
-    name: string;
-    permission: string[];
+    image?: string;
+    name?: string;
+    permissions: string[];
 };
 
 type InitialProps = {
@@ -22,7 +22,16 @@ const authSlices = createSlice({
     selectors: {
         selectUsers: (state) => state.data,
     },
-    reducers: {},
+    reducers: {
+        addUser: (state, action) => {
+            state.data.unshift(action.payload);
+        },
+        deleteUser: (state, action) => {
+            state.data = state.data.filter(
+                (user) => user.email !== action.payload
+            );
+        },
+    },
     extraReducers: (builder) => {
         builder.addMatcher(
             usersService.endpoints.getUsers.matchFulfilled,
@@ -33,7 +42,9 @@ const authSlices = createSlice({
     },
 });
 
-// export const {} = authSlices.actions;
+export const { addUser, deleteUser } = authSlices.actions;
 export const { selectUsers } = authSlices.selectors;
+
+export const users = createSelector(selectUsers, (users) => users);
 
 export default authSlices.reducer;
