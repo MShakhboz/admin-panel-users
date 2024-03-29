@@ -5,18 +5,26 @@ import { CrossIcon } from "../../svgs";
 import { Props, SendInvFormProps } from "./type";
 import { OPTIONS_PERMISSIONS } from "./constant";
 import { useAppDispatch } from "../../../store/hooks";
-import { addUser } from "../../../store/slices/usersSlice";
+import { addUser, editUser } from "../../../store/slices/usersSlice";
 import { useModals } from "../../../layouts/Modal";
+import { useEffect } from "react";
 
-const SendInvitation = ({ close }: Props) => {
+const SendInvitation = ({ close, data: userData }: Props) => {
     const dispatch = useAppDispatch();
     const { push } = useModals();
+
+    const user = userData?.user;
+
     const { handleSubmit, control, reset } = useForm<SendInvFormProps>({});
 
     const onSubmit: SubmitHandler<SendInvFormProps> = (data) => {
-        dispatch(addUser(data));
+        if (user) {
+            dispatch(editUser(data));
+        } else {
+            push("INVITE_SENT_MODAL", { email: data?.email });
+            dispatch(addUser(data));
+        }
         reset();
-        push("INVITE_SENT_MODAL", { email: data?.email });
         close();
     };
 
@@ -24,6 +32,14 @@ const SendInvitation = ({ close }: Props) => {
         reset();
         close();
     };
+
+    useEffect(() => {
+        if (user) {
+            const email = user?.email;
+            const permissions = user?.permissions;
+            reset({ email, permissions });
+        }
+    }, [reset, user]);
 
     return (
         <>
@@ -38,22 +54,28 @@ const SendInvitation = ({ close }: Props) => {
             <form onSubmit={handleSubmit(onSubmit)} className="mb-7">
                 <FlexBox className="flex-col justify-center">
                     <Title
-                        title="Отправьте приглашение"
+                        title={
+                            user
+                                ? "Изменить права доступа"
+                                : "Отправьте приглашение"
+                        }
                         className="font-extrabold text-3xl"
                     />
 
-                    <Controller
-                        name={"email"}
-                        control={control}
-                        rules={{ required: "Email is required" }}
-                        render={({ field }) => (
-                            <Input
-                                placeholder={"Email"}
-                                type={"email"}
-                                {...field}
-                            />
-                        )}
-                    />
+                    {!user && (
+                        <Controller
+                            name={"email"}
+                            control={control}
+                            rules={{ required: "Email is required" }}
+                            render={({ field }) => (
+                                <Input
+                                    placeholder={"Email"}
+                                    type={"email"}
+                                    {...field}
+                                />
+                            )}
+                        />
+                    )}
 
                     <Controller
                         name={"permissions"}
@@ -70,7 +92,7 @@ const SendInvitation = ({ close }: Props) => {
 
                     <Button
                         type={"submit"}
-                        title={"Отправить приглашение"}
+                        title={user ? "Изменить" : "Отправить приглашение"}
                         onClick={() => {}}
                         className="max-w-[404px] h-[61px]"
                     />

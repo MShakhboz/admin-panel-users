@@ -9,7 +9,10 @@ const InviteSentModal = ({
 }) => {
     return (
         <FlexBox className="justify-center flex-col px-9 pb-6">
-            <Title title={`Приглашение отправлено на почту ${data?.email}`} />
+            <Title
+                title={`Приглашение отправлено на почту ${data?.email}`}
+                className="text-center"
+            />
             <Button
                 title={"Закрыть"}
                 onClick={close}

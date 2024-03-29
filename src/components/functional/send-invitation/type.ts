@@ -1,6 +1,8 @@
+import { UserType } from "../../../store/slices/usersSlice";
+
 export type Props = {
-    isOpen: boolean;
     close: () => void;
+    data?: { user: UserType };
 };
 
 export type SendInvFormProps = {
