@@ -1,27 +1,15 @@
 import clsx from "clsx";
 import { Props } from "./type";
 
-const backdropClasses = `fixed inset-0 z-40 bg-cs-gray-300 bg-opacity-50 transition duration-300 ease-in-out`;
-
-const Modal = ({ isOpen, children, className }: Props) => {
-    // Hide modal if isOpen is false
-    if (!isOpen) return null;
-
-    const modalClasses = `fixed inset-0 z-50 overflow-y-auto px-4 md:p-8 ${
-        isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"
-    }`;
-
+const Modal = ({ children, className }: Props) => {
     return (
-        isOpen && (
-            <>
-                <div className={backdropClasses} />
-                <div className={modalClasses}>
-                    <div className="mx-auto rounded-3xl shadow-md bg-white max-w-[526px]">
-                        <div className={clsx("p-4", className)}>{children}</div>
-                    </div>
-                </div>
-            </>
-        )
+        <div
+            className={`fixed min-h-screen inset-0 z-40 bg-cs-gray-300 bg-opacity-50 transition duration-300 ease-in-out top-7`}
+        >
+            <div className="mx-auto rounded-3xl shadow-md bg-white max-w-[526px]">
+                <div className={clsx("p-4", className)}>{children}</div>
+            </div>
+        </div>
     );
 };
 

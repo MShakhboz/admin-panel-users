@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export type Props = {
-    isOpen: boolean;
+    isOpen?: boolean;
     children: ReactNode;
     className?: string;
 };

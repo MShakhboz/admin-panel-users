@@ -7,12 +7,15 @@ import store, { persister } from "./store";
 
 import "./global/global.css";
 import "./global/injectFontFamily.css";
+import { ModalProvider } from "./layouts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <Provider store={store}>
             <PersistGate loading={null} persistor={persister}>
-                <MainRouter />
+                <ModalProvider>
+                    <MainRouter />
+                </ModalProvider>
             </PersistGate>
         </Provider>
     </React.StrictMode>
