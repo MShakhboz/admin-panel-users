@@ -8,3 +8,4 @@ export { default as FlexBox } from "./flex-box";
 export { default as Table } from "./table";
 export { default as Image } from "./image";
 export { default as Text } from "./text";
+export { default as Modal } from "./modal";
