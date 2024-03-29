@@ -2,4 +2,5 @@
 export type Props = {
     data: unknown[];
     RowComponent: any;
+    className?: string;
 };

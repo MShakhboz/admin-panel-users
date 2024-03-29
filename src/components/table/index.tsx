@@ -1,8 +1,9 @@
+import clsx from "clsx";
 import { Props } from "./type";
 
-const Table = ({ data, RowComponent }: Props) => {
+const Table = ({ data, RowComponent, className }: Props) => {
     return (
-        <div className="w-full min-h-max">
+        <div className={clsx("w-full min-h-max", className)}>
             <div className="w-full">
                 {data &&
                     data.map((item, index) => (
