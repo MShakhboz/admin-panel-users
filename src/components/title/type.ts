@@ -1,1 +1,1 @@
-export type Props = { title: string };
+export type Props = { title: string; className?: string };
