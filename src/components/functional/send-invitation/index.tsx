@@ -1,20 +1,22 @@
-import { Controller, useForm } from "react-hook-form";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { Button, FlexBox, Input, Title } from "../..";
 import Dropdown from "../../drop-down";
 import { CrossIcon } from "../../svgs";
-import { Props } from "./type";
+import { Props, SendInvFormProps } from "./type";
 import { OPTIONS_PERMISSIONS } from "./constant";
 import { useAppDispatch } from "../../../store/hooks";
 import { addUser } from "../../../store/slices/usersSlice";
+import { useModals } from "../../../layouts/Modal";
 
 const SendInvitation = ({ close }: Props) => {
     const dispatch = useAppDispatch();
-    const { handleSubmit, control, reset } = useForm({});
+    const { push } = useModals();
+    const { handleSubmit, control, reset } = useForm<SendInvFormProps>({});
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const onSubmit = (data: any) => {
+    const onSubmit: SubmitHandler<SendInvFormProps> = (data) => {
         dispatch(addUser(data));
         reset();
+        push("INVITE_SENT_MODAL", { email: data?.email });
         close();
     };
 
