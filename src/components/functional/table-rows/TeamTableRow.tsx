@@ -14,14 +14,23 @@ const TeamTableRow = ({ item }: Props) => {
     return (
         <FlexBox className="px-6 py-5 !items-start cursor-pointer hover:bg-cs-gray-300 transition-all">
             <div className="mr-2">
-                <Image src={item?.image} alt={item?.name} />
+                <Image
+                    src={item?.image ? item?.image : ""}
+                    alt={item?.name ? item?.name : "Пользователь"}
+                />
             </div>
             <div className="mt-1 flex-1">
                 <FlexBox className="gap-3">
                     <Text
-                        text={item?.name}
+                        text={item?.name ? item.name : "Пользователь"}
                         className="text-lg font-semibold leading-5"
                     />
+                    {!item?.name && (
+                        <Text
+                            text={"Не авторизирован"}
+                            className="text-lg font-semibold leading-5 text-cs-gray-400"
+                        />
+                    )}
                     <Text
                         className="text-lg font-[450] leading-5 text-cs-gray-400"
                         text={item?.email}
