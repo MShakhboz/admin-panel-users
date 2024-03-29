@@ -1,4 +1,4 @@
 export type Props = {
     isOpen: boolean;
-    onClose: () => void;
+    close: () => void;
 };
