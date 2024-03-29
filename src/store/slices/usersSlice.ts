@@ -31,6 +31,12 @@ const authSlices = createSlice({
                 (user) => user.email !== action.payload
             );
         },
+        editUser: (state, action) => {
+            const index = state.data.findIndex(
+                (user) => user.email === action.payload.email
+            );
+            state.data[index].permissions = action.payload.permissions;
+        },
     },
     extraReducers: (builder) => {
         builder.addMatcher(
@@ -42,7 +48,7 @@ const authSlices = createSlice({
     },
 });
 
-export const { addUser, deleteUser } = authSlices.actions;
+export const { addUser, deleteUser, editUser } = authSlices.actions;
 export const { selectUsers } = authSlices.selectors;
 
 export const users = createSelector(selectUsers, (users) => users);
