@@ -1,3 +1,10 @@
+export type RootProps = {
+    options: MenuProps["options"];
+    onChange: (value: string[]) => void;
+    placeholder: InputDisplayProps["placeholder"];
+    value: InputDisplayProps["value"];
+};
+
 export type InputDisplayProps = {
     value?: string[];
     onClick: () => void;

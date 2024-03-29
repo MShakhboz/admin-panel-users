@@ -1,29 +1,33 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef, useState } from "react";
 import InputDisplay from "./InputDisplay";
 import Menu from "./Menu";
+import { RootProps } from "./type";
 
-const Dropdown = ({ options, onChange, placeholder, value }: any) => {
+const Dropdown = ({ options, onChange, placeholder, value }: RootProps) => {
     const dorpDownRef = useRef<HTMLDivElement | null>(null);
-
-    const [isOpen, setIsOpen] = useState<any>(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const handleOpen = () => setIsOpen(true);
 
-    const handleChange = (option: any) => {
-        let newSelected: string[] = [];
-
+    const handleChange = (option: string) => {
         if (option === "all") {
-            value?.length === options.length
-                ? onChange([])
-                : onChange(options.map((item: any) => item.value));
+            if (value && value.length === options.length) {
+                onChange([]);
+            } else {
+                onChange(
+                    options.map(
+                        (item: { label: string; value: string }) => item.value
+                    )
+                );
+            }
+        } else {
+            const newSelected: string[] =
+                value && value.includes(option)
+                    ? value.filter((item: string) => item !== option)
+                    : [...(value || []), option];
+
+            onChange(newSelected);
         }
-
-        newSelected = value?.includes(option)
-            ? value?.filter((item: any) => item !== option)
-            : [...value, option];
-
-        onChange(newSelected);
     };
 
     const dropdownClasses = `absolute ${
@@ -46,6 +50,8 @@ const Dropdown = ({ options, onChange, placeholder, value }: any) => {
     }, [setIsOpen]);
 
     options = [{ label: "Все", value: "all" }, ...options];
+
+    console.log("value", value);
 
     return (
         <div
