@@ -1,26 +1,24 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, {
-    ReactElement,
-    createContext,
-    useContext,
-    useState,
-} from "react";
+import { ReactElement, createContext, useContext, useState } from "react";
 import { Modal } from "../components";
-import { SendInvitation, SuccessRmModal } from "../components/functional";
+import {
+    InviteSentModal,
+    SendInvitation,
+    SuccessRmModal,
+} from "../components/functional";
 
 /* List Modals */
-const ModalsList: any = {
+const ModalsList: Record<string, unknown> = {
     SUCCESS_RM_MODAL: SuccessRmModal,
     SEND_INVITE_MODAL: SendInvitation,
+    INVITE_SENT_MODAL: InviteSentModal,
 };
 
 type initialStateProps = {
-    push: (componentType: string, data: any) => void;
+    push: (componentType: string, data: unknown) => void;
 };
 
 const initialState: initialStateProps = {
-    push: (componentType: string, data: any) => {},
+    push: (_componentType: string, _data: unknown) => {},
 };
 
 export const ModalContext = createContext(initialState);
@@ -38,17 +36,17 @@ const uid = (() => {
 type Modal = {
     id: string;
     type: string;
-    data: any;
+    data: unknown;
     settings: {
         open: boolean;
         close: () => void;
     };
 };
 
-export default function GlobalModal({ children }: { children: ReactElement }) {
+const ModalProvider = ({ children }: { children: ReactElement }) => {
     const [modals, setModals] = useState<Modal[]>([]);
 
-    function push(componentType: string, data: any) {
+    const push = (componentType: string, data: unknown) => {
         const store = [...modals];
         const id = uid();
 
@@ -58,23 +56,26 @@ export default function GlobalModal({ children }: { children: ReactElement }) {
             data: data,
             settings: {
                 open: true,
-                close: () => close(parseInt(id)),
+                close: () => close(id),
             },
         });
         setModals(store);
-    }
+    };
 
-    function close(id: number) {
-        setModals((state: any) => state.filter((item: any) => item.id != id));
-    }
+    const close = (id: string) => {
+        setModals((state) =>
+            state.filter((item: Modal) => item?.id !== id.toString())
+        );
+    };
 
-    function renderModals() {
+    const renderModals = () => {
         if (modals.length == 0) {
             return null;
         }
 
-        return modals.map((modal: any) => {
-            const Component = ModalsList?.[modal.type];
+        return modals.map((modal: Modal) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const Component: any = ModalsList?.[modal.type];
             return (
                 <Modal>
                     <Component
@@ -84,7 +85,7 @@ export default function GlobalModal({ children }: { children: ReactElement }) {
                 </Modal>
             );
         });
-    }
+    };
 
     return (
         <ModalContext.Provider value={{ push }}>
@@ -92,4 +93,6 @@ export default function GlobalModal({ children }: { children: ReactElement }) {
             {children}
         </ModalContext.Provider>
     );
-}
+};
+
+export default ModalProvider;
