@@ -7,7 +7,7 @@ const Table = ({ data, RowComponent, className }: Props) => {
             <div className="w-full">
                 {data &&
                     data.map((item, index) => (
-                        <RowComponent key={index} item={item} />
+                        <RowComponent key={`table-${index}`} item={item} />
                     ))}
             </div>
         </div>
