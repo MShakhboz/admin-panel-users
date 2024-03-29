@@ -12,6 +12,7 @@ export default {
             backgroundColor: {
                 "cs-white-100": "#F9FAFB",
                 "cs-green-400": "#32C076",
+                "cs-gray-200": "#EBEBF0",
             },
         },
     },
