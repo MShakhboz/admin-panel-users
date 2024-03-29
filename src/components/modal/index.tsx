@@ -1,8 +1,9 @@
+import clsx from "clsx";
 import { Props } from "./type";
 
 const backdropClasses = `fixed inset-0 z-40 bg-cs-gray-300 bg-opacity-50 transition duration-300 ease-in-out`;
 
-const Modal = ({ isOpen, children }: Props) => {
+const Modal = ({ isOpen, children, className }: Props) => {
     // Hide modal if isOpen is false
     if (!isOpen) return null;
 
@@ -15,8 +16,8 @@ const Modal = ({ isOpen, children }: Props) => {
             <>
                 <div className={backdropClasses} />
                 <div className={modalClasses}>
-                    <div className="mx-auto rounded-3xl shadow-md bg-white max-w-md">
-                        <div className="p-4">{children}</div>
+                    <div className="mx-auto rounded-3xl shadow-md bg-white max-w-[526px]">
+                        <div className={clsx("p-4", className)}>{children}</div>
                     </div>
                 </div>
             </>
