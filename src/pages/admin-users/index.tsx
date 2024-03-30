@@ -27,9 +27,12 @@ const AdminUsers = () => {
             <Container>
                 <Content className={"!p-0 !pb-3"}>
                     {/* header */}
-                    <FlexBox className="lg:gap-24 px-7 py-5 sticky top-0 border-b border-solid border-cs-gray-300 bg-white">
-                        <Title className={"font-extrabold"} title={TITLE} />
-                        <FlexBox className="gap-5 ">
+                    <FlexBox className="lg:gap-24 flex-col !items-start px-7 py-5 sticky top-0 border-b border-solid border-cs-gray-300 bg-cs-white-100 md:flex-row md:!items-center">
+                        <Title
+                            className={"font-extrabold pl-6"}
+                            title={TITLE}
+                        />
+                        <FlexBox className="gap-5 flex-col md:flex-row">
                             <SearchInput
                                 placeholder={PLACEHOLDERS.SEARCH}
                                 onChange={(value) => console.log(value)}

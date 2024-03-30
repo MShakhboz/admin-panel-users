@@ -6,7 +6,7 @@ const Modal = ({ children, className }: Props) => {
         <div
             className={`fixed min-h-screen inset-0 z-40 bg-cs-gray-300 bg-opacity-50 transition duration-300 ease-in-out top-7`}
         >
-            <div className="mx-auto rounded-3xl shadow-md bg-white max-w-[526px]">
+            <div className="mx-auto rounded-3xl shadow-md bg-cs-white-100 max-w-[526px]">
                 <div className={clsx("p-4", className)}>{children}</div>
             </div>
         </div>

@@ -5,7 +5,7 @@ const Content = ({ children, className }: Props) => {
     return (
         <div
             className={clsx(
-                "w-full overflow-y-auto max-h-[80vh] min-h-max p-7 rounded-2xl bg-cs-white-100",
+                "w-full h-full overflow-y-auto md:max-h-[80vh] min-h-max p-7 md:rounded-2xl bg-cs-white-100 ",
                 className
             )}
         >

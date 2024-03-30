@@ -62,7 +62,7 @@ const TeamTableRow = ({ item }: Props) => {
                     />
                 </div>
                 <div className="mt-1 flex-1">
-                    <FlexBox className="gap-3">
+                    <FlexBox className="gap-3 flex-wrap">
                         <Text
                             text={item?.name ? item.name : "Пользователь"}
                             className="text-lg font-semibold leading-5"

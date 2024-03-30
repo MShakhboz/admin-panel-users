@@ -7,7 +7,7 @@ const Main = () => {
             <div className="fixed h-full">
                 <SideBar />
             </div>
-            <div className="flex-1 ml-28 flex items-start justify-center">
+            <div className="flex-1 md:ml-28 flex items-start justify-center -z-10">
                 <Outlet />
             </div>
         </div>
