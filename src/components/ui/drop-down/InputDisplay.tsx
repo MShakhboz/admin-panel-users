@@ -9,7 +9,6 @@ const Tag = ({ item }: TagProps) => {
 };
 
 const InputDisplay = ({ value, onClick, placeholder }: InputDisplayProps) => {
-    console.log("value", value);
     return (
         <div
             onClick={onClick}

@@ -15,7 +15,10 @@ const Menu = ({ options, dropdownClasses, handleChange, value }: MenuProps) => {
                             id={option?.value}
                             value={option?.value}
                             className="hidden peer"
-                            checked={value?.includes(option?.value)}
+                            checked={
+                                value?.includes(option?.value) ||
+                                value?.length === options.length - 1
+                            }
                             onChange={() => handleChange(option?.value)}
                         />
                         <span

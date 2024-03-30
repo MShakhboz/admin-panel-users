@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { usersService } from "../../services/api/usersService";
 
 export type UserType = {
@@ -19,9 +19,6 @@ const initialState: InitialProps = {
 const authSlices = createSlice({
     name: "auth",
     initialState,
-    selectors: {
-        selectUsers: (state) => state.data,
-    },
     reducers: {
         addUser: (state, action) => {
             state.data.unshift(action.payload);
@@ -49,8 +46,5 @@ const authSlices = createSlice({
 });
 
 export const { addUser, deleteUser, editUser } = authSlices.actions;
-export const { selectUsers } = authSlices.selectors;
-
-export const users = createSelector(selectUsers, (users) => users);
 
 export default authSlices.reducer;

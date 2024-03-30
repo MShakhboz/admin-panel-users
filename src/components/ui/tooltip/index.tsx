@@ -5,12 +5,10 @@ const BottomTooltip = ({
     content,
     className,
     children,
-    key,
 }: {
     content: ReactNode | string | number;
     children: ReactNode;
     className?: string;
-    key?: string | number;
 }) => {
     const [isOpen, setIsOpen] = useState(false);
     const tooltipRef = useRef<HTMLDivElement | null>(null);
@@ -91,7 +89,6 @@ const BottomTooltip = ({
             </span>
             {isOpen && (
                 <div
-                    key={key}
                     ref={contentRef}
                     className={clsx(
                         `absolute min-w-[238px] min-h-max transform -translate-x-2 p-5 rounded-md bg-white text-cs-black-500 text-sm shadow-md transition duration-300 ease-in-out`,

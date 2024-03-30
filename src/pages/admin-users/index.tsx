@@ -35,7 +35,7 @@ const AdminUsers = () => {
                         <FlexBox className="gap-5 flex-col md:flex-row">
                             <SearchInput
                                 placeholder={PLACEHOLDERS.SEARCH}
-                                onChange={(value) => console.log(value)}
+                                onChange={(e) => console.log(e.target.value)}
                             />
                             <Button
                                 title={BUTTONS.ADD_USER}

@@ -4,7 +4,7 @@ import {
     createRoutesFromElements,
     RouterProvider,
 } from "react-router-dom";
-import { AdminUsersPage } from "../pages";
+import { AdminUsersPage, NotFound } from "../pages";
 import { MainLayout } from "../layouts";
 
 const router = createBrowserRouter(
@@ -14,7 +14,7 @@ const router = createBrowserRouter(
             <Route path={"/"} element={<MainLayout />}>
                 <Route index element={<AdminUsersPage />} />
             </Route>
-            <Route path="*" element={<></>} />
+            <Route path="*" element={<NotFound />} />
         </Route>
     )
 );

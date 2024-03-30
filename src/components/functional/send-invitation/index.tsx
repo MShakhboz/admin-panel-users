@@ -7,6 +7,7 @@ import { useAppDispatch } from "../../../store/hooks";
 import { addUser, editUser } from "../../../store/slices/usersSlice";
 import { useModals } from "../../../layouts/Modal";
 import { useEffect } from "react";
+import { SIDEBAR_MENU } from "../../../global/constant";
 
 const SendInvitation = ({ close, data: userData }: Props) => {
     const dispatch = useAppDispatch();
@@ -31,6 +32,14 @@ const SendInvitation = ({ close, data: userData }: Props) => {
         reset();
         close();
     };
+
+    const permOptions = [
+        ...OPTIONS_PERMISSIONS,
+        ...SIDEBAR_MENU.map((item) => ({
+            value: item.title,
+            label: item?.title,
+        })),
+    ];
 
     useEffect(() => {
         if (user) {
@@ -83,7 +92,7 @@ const SendInvitation = ({ close, data: userData }: Props) => {
                         render={({ field }) => (
                             <Dropdown
                                 placeholder={"Выберите права доступа"}
-                                options={OPTIONS_PERMISSIONS}
+                                options={permOptions}
                                 {...field}
                             />
                         )}

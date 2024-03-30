@@ -20,8 +20,6 @@ const Content = ({ user }: { user: Props["item"] }) => {
         push("SUCCESS_RM_MODAL", {});
     };
 
-    // console.log("user", user);
-
     const onEdit = () => {
         push("SEND_INVITE_MODAL", { user });
     };

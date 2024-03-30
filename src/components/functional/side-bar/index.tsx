@@ -41,9 +41,10 @@ const SideBar = ({ bigger, openSideBar, closeSideBar }: MenuOpenProps) => {
         <div>
             <div
                 className={clsx(
-                    "h-full left-[-100px] fixed bg-cs-white-100 rounded-tr-2xl pl-5 pt-6 flex items-start justify-start z-50 transition-all duration-300 ease-in-out overflow-y-auto md:w-[100px] md:left-0",
-                    bigger && "left-[0] w-[250px] md:w-[250px] !z-50"
+                    "h-full left-[-100px] absolute bg-cs-white-100 rounded-tr-2xl pl-5 pt-6 flex items-start justify-start z-50 transition-all duration-300 ease-in-out overflow-y-auto md:w-[100px] md:left-0",
+                    bigger && "left-[0] w-[250px] md:w-[250px]"
                 )}
+                style={{ zIndex: 99999 }}
                 onMouseEnter={openSideBar}
                 onMouseLeave={closeSideBar}
                 onMouseOver={openSideBar}

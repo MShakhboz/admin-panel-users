@@ -11,13 +11,16 @@ const Dropdown = ({ options, onChange, placeholder, value }: RootProps) => {
 
     const handleChange = (option: string) => {
         if (option === "all") {
-            if (value && value.length === options.length) {
+            if (value && value.length === options.length - 1) {
                 onChange([]);
             } else {
                 onChange(
-                    options.map(
-                        (item: { label: string; value: string }) => item.value
-                    )
+                    options
+                        .map(
+                            (item: { label: string; value: string }) =>
+                                item.value
+                        )
+                        .filter((item: string) => item !== "all")
                 );
             }
         } else {
