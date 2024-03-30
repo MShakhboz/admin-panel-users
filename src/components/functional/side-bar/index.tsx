@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { ReactNode, useState } from "react";
-import logo from "../../assets/images/logo.png";
-import user from "../../assets/images/user.png";
-import { SIDEBAR_MENU } from "../../global/constant";
-import { FlexBox, Text } from "..";
+import logo from "../../../assets/images/logo.png";
+import user from "../../../assets/images/user.png";
+import { SIDEBAR_MENU } from "../../../global/constant";
+import { FlexBox, Text } from "../../ui";
 import {
     AnalyticIcon,
     BannersIcon,
@@ -16,7 +16,7 @@ import {
     ModerationIcon,
     TeamIcon,
     UserIcon,
-} from "../svgs";
+} from "../../ui/svgs";
 import { NavLink } from "react-router-dom";
 
 const icons: Record<string, ReactNode> = {
@@ -49,7 +49,7 @@ const SideBar = () => {
             <div
                 className={clsx(
                     "h-full left-[-100px] absolute bg-cs-white-100 rounded-tr-2xl pl-5 pt-6 flex items-start justify-start z-50 transition-all duration-300 ease-in-out overflow-y-auto md:w-[100px] md:left-0",
-                    bigger && "md:!w-[250px] w-[244px] left-0"
+                    bigger && "left-[0] w-[250px] md:w-[250px]"
                 )}
                 onMouseEnter={openSideBar}
                 onMouseLeave={closeSideBar}

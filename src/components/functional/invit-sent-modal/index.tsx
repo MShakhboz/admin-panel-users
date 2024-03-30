@@ -1,4 +1,4 @@
-import { Button, FlexBox, Title } from "../..";
+import { Button, FlexBox, Title } from "../../ui";
 
 const InviteSentModal = ({
     close,

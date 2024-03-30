@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import { BottomTooltip, FlexBox } from "../..";
+import { Tooltip, FlexBox } from "../../ui";
 import { UserType, deleteUser } from "../../../store/slices/usersSlice";
-import Image from "../../image";
-import { ThreeDots } from "../../svgs";
-import Text from "../../text";
+import Image from "../../ui/image";
+import { ThreeDots } from "../../ui/svgs";
+import Text from "../../ui/text";
 import { useAppDispatch } from "../../../store/hooks";
 import { useModals } from "../../../layouts/Modal";
 
@@ -105,14 +105,11 @@ const TeamTableRow = ({ item }: Props) => {
                     </FlexBox>
                 </div>
 
-                <BottomTooltip
-                    content={<Content user={item} />}
-                    key={item?.email}
-                >
+                <Tooltip content={<Content user={item} />} key={item?.email}>
                     <button className="p-0 m-0 border-solid">
                         <ThreeDots />
                     </button>
-                </BottomTooltip>
+                </Tooltip>
             </FlexBox>
         </>
     );

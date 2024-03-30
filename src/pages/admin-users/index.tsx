@@ -6,7 +6,7 @@ import {
     SearchInput,
     Table,
     Title,
-} from "../../components";
+} from "../../components/ui";
 
 import { TeamTableRow } from "../../components/functional/table-rows";
 import { BUTTONS } from "../../global/constant";

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { SideBar } from "../components";
+import { SideBar } from "../components/functional";
 
 const Main = () => {
     return (
@@ -7,7 +7,7 @@ const Main = () => {
             <div className="fixed h-full">
                 <SideBar />
             </div>
-            <div className="flex-1 md:ml-28 flex items-start justify-center -z-10">
+            <div className="flex-1 md:ml-28 flex items-start justify-center">
                 <Outlet />
             </div>
         </div>

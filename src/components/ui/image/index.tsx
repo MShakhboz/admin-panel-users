@@ -1,5 +1,5 @@
 import validator from "validator";
-import defaultImage from "../../assets/images/person.png";
+import defaultImage from "../../../assets/images/person.png";
 
 import { Props } from "./type";
 

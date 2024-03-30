@@ -1,5 +1,5 @@
 import { ReactElement, createContext, useContext, useState } from "react";
-import { Modal } from "../components";
+import { Modal } from "../components/ui";
 import {
     InviteSentModal,
     SendInvitation,

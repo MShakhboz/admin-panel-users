@@ -1,7 +1,6 @@
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { Button, FlexBox, Input, Title } from "../..";
-import Dropdown from "../../drop-down";
-import { CrossIcon } from "../../svgs";
+import { Button, Dropdown, FlexBox, Input, Title } from "../../ui";
+import { CrossIcon } from "../../../components/ui/svgs";
 import { Props, SendInvFormProps } from "./type";
 import { OPTIONS_PERMISSIONS } from "./constant";
 import { useAppDispatch } from "../../../store/hooks";
