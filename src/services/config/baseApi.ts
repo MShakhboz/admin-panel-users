@@ -7,7 +7,7 @@ import {
 
 const baseQuery = fetchBaseQuery({
     baseUrl: "users.json",
-    prepareHeaders: (headers, { getState }) => {},
+    prepareHeaders: () => {},
 });
 
 const baseQueryModified = async (
