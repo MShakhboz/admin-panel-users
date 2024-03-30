@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import logo from "../../../assets/images/logo.png";
 import user from "../../../assets/images/user.png";
 import { SIDEBAR_MENU } from "../../../global/constant";
@@ -9,15 +9,14 @@ import {
     BannersIcon,
     BlogIcon,
     ChatIcon,
-    CrossIcon,
     CurrencyIcon,
     LogoutIcon,
-    MenuIcon,
     ModerationIcon,
     TeamIcon,
     UserIcon,
 } from "../../ui/svgs";
 import { NavLink } from "react-router-dom";
+import { MenuOpenProps } from "./type";
 
 const icons: Record<string, ReactNode> = {
     analytics: <AnalyticIcon />,
@@ -31,25 +30,19 @@ const icons: Record<string, ReactNode> = {
     logout: <LogoutIcon />,
 };
 
-const SideBar = () => {
-    const [bigger, setBigger] = useState(false);
-
+const SideBar = ({ bigger, openSideBar, closeSideBar }: MenuOpenProps) => {
     const logOut = ({ id }: { id: string }) => {
         if (id === "logout") {
             console.log("logout");
         }
     };
 
-    const openSideBar = () => setBigger(true);
-
-    const closeSideBar = () => setBigger(false);
-
     return (
         <div>
             <div
                 className={clsx(
-                    "h-full left-[-100px] absolute bg-cs-white-100 rounded-tr-2xl pl-5 pt-6 flex items-start justify-start z-50 transition-all duration-300 ease-in-out overflow-y-auto md:w-[100px] md:left-0",
-                    bigger && "left-[0] w-[250px] md:w-[250px]"
+                    "h-full left-[-100px] fixed bg-cs-white-100 rounded-tr-2xl pl-5 pt-6 flex items-start justify-start z-50 transition-all duration-300 ease-in-out overflow-y-auto md:w-[100px] md:left-0",
+                    bigger && "left-[0] w-[250px] md:w-[250px] !z-50"
                 )}
                 onMouseEnter={openSideBar}
                 onMouseLeave={closeSideBar}
@@ -113,25 +106,6 @@ const SideBar = () => {
                         )}
                     </ul>
                 </div>
-            </div>
-            <MenuIcon
-                className={clsx(
-                    "block absolute top-9 left-5 z-50 md:hidden",
-                    bigger && "hidden"
-                )}
-                onClick={openSideBar}
-                style={{ zIndex: 999999 }}
-            />
-            <div onClick={closeSideBar}>
-                <CrossIcon
-                    className={clsx(
-                        "block absolute top-9 left-7 z-50 md:hidden",
-                        !bigger && "hidden"
-                    )}
-                    fill={"#9494A0"}
-                    onClick={closeSideBar}
-                    style={{ zIndex: 999999 }}
-                />
             </div>
         </div>
     );
