@@ -8,6 +8,7 @@ const Content = ({ children, className }: Props) => {
                 "w-full h-full overflow-y-auto md:max-h-[80vh] min-h-max p-7 md:rounded-2xl bg-cs-white-100 ",
                 className
             )}
+            id={"content"}
         >
             {children}
         </div>

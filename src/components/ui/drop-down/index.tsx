@@ -54,8 +54,6 @@ const Dropdown = ({ options, onChange, placeholder, value }: RootProps) => {
 
     options = [{ label: "Все", value: "all" }, ...options];
 
-    console.log("value", value);
-
     return (
         <div
             className="inline-block relative w-full max-w-[404px]"

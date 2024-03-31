@@ -1,27 +1,34 @@
 import clsx from "clsx";
-import { CrossIcon, MenuIcon } from "../../ui/svgs";
+import { MenuIcon } from "../../ui/svgs";
 import { MenuOpenProps } from "./type";
+import { useEffect, useState } from "react";
 
-const MobileMenu = ({ bigger, openSideBar, closeSideBar }: MenuOpenProps) => {
+const MobileMenu = ({ bigger, openSideBar }: MenuOpenProps) => {
+    const [isMenuIconVisible, setIsMenuIconVisible] = useState(true);
+
+    useEffect(() => {
+        const content = document?.getElementById(
+            "content"
+        ) as HTMLDivElement | null;
+
+        const handleScroll = () => {
+            const scrollTop = content?.scrollTop || 0;
+            setIsMenuIconVisible(scrollTop < 20);
+        };
+
+        content?.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <>
-            <MenuIcon
-                className={clsx(
-                    "block absolute top-9 left-5 z-50 md:hidden",
-                    bigger && "hidden"
-                )}
-                onClick={openSideBar}
-            />
-            <div
-                onClick={closeSideBar}
-                className={clsx(
-                    "block absolute top-9 left-7 z-50 md:hidden",
-                    !bigger && "hidden"
-                )}
-            >
-                <CrossIcon fill={"#9494A0"} onClick={closeSideBar} />
-            </div>
-        </>
+        <MenuIcon
+            className={clsx(
+                `block absolute z-50 md:hidden top-9 left-5`,
+                (bigger || !isMenuIconVisible) && "hidden"
+            )}
+            onClick={openSideBar}
+        />
     );
 };
 

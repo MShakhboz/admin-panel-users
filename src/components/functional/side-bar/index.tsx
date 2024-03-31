@@ -9,6 +9,7 @@ import {
     BannersIcon,
     BlogIcon,
     ChatIcon,
+    CrossIcon,
     CurrencyIcon,
     LogoutIcon,
     ModerationIcon,
@@ -17,6 +18,7 @@ import {
 } from "../../ui/svgs";
 import { NavLink } from "react-router-dom";
 import { MenuOpenProps } from "./type";
+// import MobileMenu from "./MobileMenu";
 
 const icons: Record<string, ReactNode> = {
     analytics: <AnalyticIcon />,
@@ -44,7 +46,6 @@ const SideBar = ({ bigger, openSideBar, closeSideBar }: MenuOpenProps) => {
                     "h-full left-[-100px] absolute bg-cs-white-100 rounded-tr-2xl pl-5 pt-6 flex items-start justify-start z-50 transition-all duration-300 ease-in-out overflow-y-auto md:w-[100px] md:left-0",
                     bigger && "left-[0] w-[250px] md:w-[250px]"
                 )}
-                style={{ zIndex: 99999 }}
                 onMouseEnter={openSideBar}
                 onMouseLeave={closeSideBar}
                 onMouseOver={openSideBar}
@@ -56,6 +57,15 @@ const SideBar = ({ bigger, openSideBar, closeSideBar }: MenuOpenProps) => {
                             alt={"company logo"}
                             className="hidden md:block"
                         />
+                    </div>
+                    <div
+                        onClick={closeSideBar}
+                        className={clsx(
+                            "block absolute top-9 left-7 z-50 md:hidden",
+                            !bigger && "hidden"
+                        )}
+                    >
+                        <CrossIcon fill={"#9494A0"} onClick={closeSideBar} />
                     </div>
                     <FlexBox className="!w-[60px] !h-[60px] gap-3">
                         <img src={user} alt={"company logo"} />
