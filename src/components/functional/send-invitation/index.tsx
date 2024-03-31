@@ -39,7 +39,7 @@ const SendInvitation = ({ close, data: userData }: Props) => {
             value: item.title,
             label: item?.title,
         })),
-    ];
+    ].sort((a, b) => a.value.localeCompare(b.value));
 
     useEffect(() => {
         if (user) {

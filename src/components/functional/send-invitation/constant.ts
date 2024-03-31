@@ -12,4 +12,8 @@ export const OPTIONS_PERMISSIONS = [
         value: "Обращение клиентов",
         label: "Обращение клиентов",
     },
+    {
+        value: "Администратор",
+        label: "Администратор",
+    },
 ];
