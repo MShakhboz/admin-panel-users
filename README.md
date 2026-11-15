@@ -1,33 +1,28 @@
-# React + TypeScript + Vite
+# Team admin panel
 
-https://admin-test-6.netlify.app/
+**Live demo:** https://admin-test-6.netlify.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An admin page for managing a team's users and their access rights, built with React, TypeScript and Redux Toolkit. The interface is in Russian.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Team table** with each member's avatar, name, email and permission badges (administrators are highlighted).
+- **Invite a member** in a modal form: email and a multi-select of permissions (promotions, ad moderation, tech support, customer requests, administrator), followed by an "invitation sent" confirmation.
+- **Row actions menu:** change access rights (the same form, prefilled), resend the code, or delete the member.
+- **Redux data flow:** users are loaded with RTK Query and edited through a Redux Toolkit slice (add, edit, delete).
+- **Custom UI kit:** inputs, dropdowns, tooltips, titles and modals built from scratch with Tailwind CSS and the Futura font.
 
-## Expanding the ESLint configuration
+## Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+React 18 · TypeScript · Vite 5 · Redux Toolkit · RTK Query · React Hook Form · React Router · Tailwind CSS
 
-- Configure the top-level `parserOptions` property like this:
+## Run locally
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+yarn install
+yarn dev      # http://localhost:5173
+yarn build    # type-check and production build
+yarn lint
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# admin-panel-users
+The demo data lives in `public/users.json`.
